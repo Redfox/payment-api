@@ -1,4 +1,8 @@
 node_modules
-logs
+
 .env
+
 dist
+
+logs
+yarn-error.log

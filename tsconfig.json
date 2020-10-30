@@ -9,10 +9,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "outDir": "dist",
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "paths": {
-      "@shared": ["shared/*"],
-      "@domais": ["domains/*"]
+      "@shared/*": ["shared/*"],
+      "@domains/*": ["domains/*"]
     }
   },
   "include": [

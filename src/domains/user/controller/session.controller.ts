@@ -6,14 +6,17 @@ import { SessionService } from '@domains/user/services/session.service';
 @Controller('user')
 export class SessionController {
   @Get('/')
-  index(_: Response, res: Response): Response {
+  async index(_: Response, res: Response): Promise<void> {
     const service = container.resolve(SessionService);
 
-    const token = service.execute();
+    const qrCode = await service.execute();
 
-    return res.json({
-      token,
+    res.writeHead(200, {
+      'Content-Type': 'image/png',
+      'Content-Length': qrCode.length,
     });
+
+    res.end(qrCode);
   }
 
   @Post('session')

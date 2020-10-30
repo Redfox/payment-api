@@ -1,8 +1,14 @@
-import { injectable } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
+import { QrCode } from '../providers/interfaces/qrcode.interface';
 
 @injectable()
 export class SessionService {
-  execute(): string {
-    return 'token';
+  constructor(
+    @inject('QrCodeProvider')
+    private qrCode: QrCode,
+  ) {}
+
+  async execute(): Promise<Buffer> {
+    return this.qrCode.execute();
   }
 }

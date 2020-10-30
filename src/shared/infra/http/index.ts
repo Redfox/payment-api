@@ -1,4 +1,6 @@
+import 'reflect-metadata';
 import 'dotenv/config';
+import '@shared/container';
 import express from 'express';
 import bodyparse from 'body-parser';
 import cors from 'cors';

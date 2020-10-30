@@ -24,6 +24,7 @@ module.exports = {
     'no-shadow': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
+    'import/prefer-default-export': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -37,9 +38,7 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      node: {
-        extensions: ['.js', '.ts', '.d.ts'],
-      },
+      typescript: {},
     },
   },
 };

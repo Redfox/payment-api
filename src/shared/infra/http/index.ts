@@ -4,6 +4,7 @@ import bodyparse from 'body-parser';
 import cors from 'cors';
 import logger from 'shared/providers/logger';
 import { Server } from '@overnightjs/core';
+import { controllers } from './controllers';
 
 class App extends Server {
   private server: express.Application;
@@ -14,6 +15,7 @@ class App extends Server {
 
     this.server.use(cors());
     this.server.use(bodyparse.json());
+    this.setupControllers();
   }
 
   async start(): Promise<void> {
@@ -22,6 +24,10 @@ class App extends Server {
     this.server.listen(port, () => {
       logger('main', `🚀 Server ready at ${port}`, 'info');
     });
+  }
+
+  private setupControllers(): void {
+    this.addControllers(controllers);
   }
 }
 
